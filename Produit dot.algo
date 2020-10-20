@@ -1,0 +1,33 @@
+PROCEDURE dot_product(VAR ps: INTEGER v1: ARRAY_OF INTEGER v2: ARRAY_OF INTEGER)
+VAR
+   i,j:INTEGER
+BEGIN
+    FOR i FROM 0 TO v1.length-1 DO
+        FOR j FROM 0 TO v2.length-1 DO
+            ps := v1[i] * v2[j]
+        END_FOR
+     END_FOR
+END
+
+
+FUNCTION orthog_ou_pas(produitscalaire: INTEGER) : STRING
+
+BEGIN
+IF (produitscalaire = 0) THEN
+     RETURN 'vecteurs orthogonaux' ;
+     ELSE
+     RETURN ' vecteurs non ortogonaux'
+END_IF
+END
+
+ALGORITHM vecteur
+VAR
+    v1: ARRAY_OF INTEGER
+    v2: ARRAY_OF INTEGER
+    ps : INTEGER
+    msg : STRING
+BEGIN
+    dot_product(ps,v1,v2)
+    msg := orthog_ou_pas(ps)
+    write (msg)
+END
